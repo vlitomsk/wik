@@ -7,8 +7,8 @@ if (isset($_POST['qid'])) {
 	mysql_close($dbconn);
 }
 if (isset($_POST['q_text']) && isset($_POST['q_answers']) && isset($_POST['q_correct'])) {
-	$qtext = mysql_real_escape_string($_POST['q_text']);
-	$answers = mysql_real_escape_string(serialize(explode('#', $_POST['q_answers'])));
+	$qtext = mysql_real_escape_string(iconv('windows-1251', 'utf-8', $_POST['q_text']));
+	$answers = mysql_real_escape_string(serialize(explode('#', iconv('windows-1251', 'utf-8', $_POST['q_answers']))));
 	$correct = intval($_POST['q_correct']);
 	$dbconn = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
 	mysql_select_db(MYSQL_DB_NAME);
@@ -29,7 +29,7 @@ function load_questions($fd) {
 			fwrite($fd, ",\n");
 		}
 		fwrite($fd, "{\n");
-		fwrite($fd, "  question: \"".$question[1]."\",\n");
+		fwrite($fd, "  question: \"".iconv('utf-8', 'windows-1251', $question[1])."\",\n");
 		fwrite($fd, "  id:".$question[0].",\n");
 		fwrite($fd, "  answers:\n");
 		fwrite($fd, "        [\n");
@@ -41,7 +41,7 @@ function load_questions($fd) {
 			fwrite($fd, "          {\n");
 			fwrite($fd, '           aid: '.($i + 1).",\n");
 			fwrite($fd, "           correct: false,\n");
-			fwrite($fd, "           content: \"".$answers[$i]."\"\n");
+			fwrite($fd, "           content: \"".iconv('utf-8', 'windows-1251', $answers[$i])."\"\n");
 			fwrite($fd, "          }");
 		}
 		
@@ -61,7 +61,7 @@ if (isset($_POST['upd_examtask'])) {
 ?>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 </head>
 <body>
 <h1>Админка</h1>
@@ -89,10 +89,10 @@ while ($row = mysql_fetch_row($qres)) {
 	echo "    <form action=index.php method=POST>\n";
 	echo "    <input type=hidden name=qid value=".intval($row[0]).">\n";
 	echo "    <td>\n";
-	echo "      ".$row[1];	
+	echo "      ".iconv('utf-8', 'windows-1251', $row[1]);
 	echo "    </td>\n";
 	echo "    <td>\n";
-	$answers = unserialize($row[2]);
+	$answers = unserialize(iconv('utf-8', 'windows-1251', $row[2]));
 	for ($i = 0; $i < count($answers); $i++) {
 		$cur_correct = (($i + 1) == intval($row[3]));
 		echo "      ".($cur_correct ? "<b>" : "").($i + 1).") ".$answers[$i].($cur_correct ? "</b>" : "")."<br>\n";	

@@ -278,7 +278,7 @@ exam.drop = function(event, ui)
 			if (xmlHttp.status == 200) {
 				is_correct_drop = (xmlHttp.responseText[0] == 'y');
 				worked = true;				
-				alert('Got response: ' + xmlHttp.responseText);
+				//alert('Got response: ' + xmlHttp.responseText);
 				
 				// На вопрос сброшен правильный ответ?
 				if(is_correct_drop)
@@ -442,22 +442,44 @@ exam.showFinPic = function()
 	$('#exam_answers').css('border-top','none')
 
 		// Покажем звание
-		alert(exam.all);
+/*		alert(exam.all);
 	if (exam.bonus == 5) alert ("Магистр этикета");
 	if (exam.bonus == 4) alert ("Бакалавр этикета");
 	if (exam.bonus == 3) alert ("Школяр этикета");
-	if (exam.bonus == 2) alert ("Надо начать заново");
+	if (exam.bonus == 2) alert ("Надо начать заново");*/
 
-	$("#exam_z").html(exam.picStatus[exam.bonus-1]);
+	var userid = document.getElementById('form_uid').value;
+	var xmlHttp = getXmlHttp();
+	var params = 'get_score=1&uid=' + encodeURIComponent(userid);
+	xmlHttp.open("GET", '/check.php?' + params, true);
+	xmlHttp.send(null);
+	xmlHttp.onreadystatechange = function() {
+		if (xmlHttp.readyState == 4) {
+			if (xmlHttp.status == 200) {
+				var res = xmlHttp.responseText;
+				alert('Результат: ' + res);
+				var score = parseInt(res);
+				$("#exam_z").html(exam.picStatus[exam.bonus-1]);
 
-	// Покажем завершающее сообщение
-	$("#exam_mess").html(exam.mess[1]);
-	// Покажем завершающую картинку
-	$("<IMG border=1 id=examfin src='"+exam.pathPic+"finf.gif' alt=''>")
-		.css('position','absolute')     
-		.css('left',57)     
-		.css('top',67)  
-		.css('display','none') 
-		.appendTo("#exam_answers")
-		.fadeIn('slow'); 
+				// Покажем завершающее сообщение
+				$("#exam_mess").html(exam.mess[1]);
+				// Покажем завершающую картинку
+				$("<IMG border=1 id=examfin src='"+exam.pathPic+"finf.gif' alt=''>")
+					.css('position','absolute')     
+					.css('left',57)     
+					.css('top',67)  
+					.css('display','none') 
+					.appendTo("#exam_answers")
+					.fadeIn('slow'); 
+
+				if (score >= 2) {					
+					alert('Сертификат!!');
+					$("<IMG border=1 id=examfin src='" + exam.pathPic + "cert/c_"+ userid + ".png' alt=''>")
+						.appendTo("#exam_answers")
+						.fadeIn('slow'); 
+				}
+			}
+		}
+	}
+
 }
