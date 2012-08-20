@@ -4,7 +4,7 @@ $sql_captcha = 'CREATE TABLE IF NOT EXISTS `captcha` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=1' ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1' ;
 
 $sql_questions = 'CREATE TABLE IF NOT EXISTS `questions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -12,7 +12,7 @@ $sql_questions = 'CREATE TABLE IF NOT EXISTS `questions` (
   `variants` text CHARACTER SET utf8 NOT NULL,
   `correct` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=1' ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1' ;
 
 $sql_users = 'CREATE TABLE IF NOT EXISTS `users` (
   `uid` varchar(32) NOT NULL,
@@ -24,10 +24,10 @@ $sql_users = 'CREATE TABLE IF NOT EXISTS `users` (
   `score` int(11) NOT NULL,
   `tries` text NOT NULL,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=cp1251';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8';
 
 $dbconn = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
-mysql_query('CREATE DATABASE '.MYSQL_DB_NAME.' DEFAULT CHARSET cp1251');
+mysql_query('CREATE DATABASE '.MYSQL_DB_NAME.' DEFAULT CHARSET utf8');
 mysql_select_db(MYSQL_DB_NAME);
 
 mysql_query($sql_captcha);

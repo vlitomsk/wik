@@ -2,12 +2,16 @@
 require_once('mysql_conf.php');
 require_once('captcha.php');
 
+function iconv1251_8($txt) {
+	return iconv('windows-1251', 'UTF-8', $txt);
+}
+
 // возвращает id нового юзера в таблице users
 function register_new_user($fam, $name, $age, $city, $email) {
-	$fam = mysql_real_escape_string($fam);
-	$name = mysql_real_escape_string($name);
-	$city = mysql_real_escape_string($city);
-	$email = mysql_real_escape_string($email);
+	$fam = mysql_real_escape_string(iconv1251_8($fam));
+	$name = mysql_real_escape_string(iconv1251_8($name));
+	$city = mysql_real_escape_string(iconv1251_8($city));
+	$email = mysql_real_escape_string(iconv1251_8($email));
 	$new_uid = md5($fam.$name.strval($age).$city.'fuckin8_s@1t!@#');
 
 	$dbconn = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
