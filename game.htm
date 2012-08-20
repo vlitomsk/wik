@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+  "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="ru">
+  <HEAD>
+    <META http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    <META http-equiv="imagetoolbar" content="no">
+
+    <SCRIPT type="text/javascript" src="js/jquery.min.js"></SCRIPT>
+
+    <SCRIPT type="text/javascript" src="js/jquery.hoverIntent.js"></SCRIPT>
+    <SCRIPT type="text/javascript" src="js/jquery.cluetip.js"></SCRIPT>
+    <LINK rel="stylesheet" type="text/css" href="css/jquery.cluetip.css">
+
+    <LINK type="text/css" href="css/main.css" rel="stylesheet">	
+    <SCRIPT type="text/javascript" src="js/mainind.js"></SCRIPT>
+
+    <TITLE>Игры</TITLE>
+  </HEAD>
+  <BODY>
+
+    <DIV id="test">                          <!-- Главный блок  -->
+      <DIV id="test_title"></DIV>            <!-- Заголовок  -->
+      <DIV id="test_work">                   <!-- Рабочая область -->
+        <DIV id="test_begin">              <!-- Область для текста -->
+          <H2>Игры</H2>
+          <P>
+Вашему вниманию представлены игры, посвященные истории Омского театра
+юного зрителя и спектаклю <EM>Путешествие профессора Тарантоги.</EM>
+Это компьютерный вариант творческой игры,
+проводимой городским клубом интеллектуальных игр <EM>Мгновение</EM>.
+          </P>
+
+          <H3>
+Правила игр
+          </H3>
+          <P>
+Игра состоит из нескольких самостоятельных игр-этапов. Проходить этапы
+можно в разном порядке.
+К следующему заданию можно перейти только тогда, когда дан верный ответ
+на текущее задание.
+          </P>
+          <P>
+Из любого места игры можно перейти на Главную страницу щелчком по
+соответствующей кнопке.
+          </P>
+
+          <H3>
+Оценка
+          </H3>
+          <P>
+После каждого задания выдается оценка:
+          </P>
+          <UL>
+            <LI>зеленая маска, если задание выполнено верно
+            <LI>красная маска, если задание выполнено неверно
+          </UL>
+
+          <P>
+В конце каждой игры выдается оценка:
+          </P>
+          <UL>
+            <LI>зеленая маска, если все задания выполнены верно
+            <LI>желтая маска, если ошибок меньше, чем заданий
+            <LI>красная маска, если ошибок больше, чем заданий
+          </UL>
+
+          <H3>
+Игры-этапы 
+          </H3>
+          <P>
+<A href="game1.htm"><IMG class=but src="pic/test1.png" 
+                         width=130 height=50 border=0
+                         onclick="this.src='./pic/test3.png'"
+                         onmouseover="this.src='./pic/test2.png'"
+                         onmouseout="this.src='./pic/test1.png'"
+                         alt="Начать игру"></A> 
+<A href="game2.htm"><IMG class=but src="pic/sort1.png" 
+                         width=130 height=50 border=0
+                         onclick="this.src='./pic/sort3.png'"
+                         onmouseover="this.src='./pic/sort2.png'"
+                         onmouseout="this.src='./pic/sort1.png'"
+                         alt="Начать игру"></A> 
+          </P>
+
+        </DIV>     
+
+        <DIV id="test_area_boxes">  <!-- Область для кнопок -->
+<A href="index.htm"><IMG class=but src="pic/index1.png" width=115 height=50 
+                         onclick="this.src='./pic/index3.png'"
+                         onmouseover="this.src='./pic/index2.png'"
+                         onmouseout="this.src='./pic/index1.png'"                         
+                         border=0 alt="Начало"></A> 
+<IMG class=but src="pic/game2.png" 
+                         width=115 height=50 border=0
+                         alt="Начать игру"> 
+<A href="history.htm"><IMG class=but src="pic/history1.png" 
+                         width=115 height=50 border=0
+                         onclick="this.src='./pic/history3.png'"
+                         onmouseover="this.src='./pic/history2.png'"
+                         onmouseout="this.src='./pic/history1.png'"
+                         alt="Из истории"></A> 
+<A href="autors.htm"><IMG class=but src="pic/autors1.png" 
+                         width=115 height=50 border=0
+                         onclick="this.src='./pic/autors3.png'"
+                         onmouseover="this.src='./pic/autors2.png'"
+                         onmouseout="this.src='./pic/autors1.png'"
+                         alt="Авторы"></A>          
+        </DIV>                      
+        <DIV id="test_photo">       <!-- Область для фотогалереи -->
+<IMG class=basic id="photo1"
+     src="pic/0502.jpg" width=142 height=132 border=0
+     alt="Скульптура Дон Кихота">
+          <P class="space">
+&nbsp;
+          </P>
+<IMG class=basic id="photo2"
+     src="pic/0501.jpg" width=142 height=126 border=0
+     alt="Сцена из спектакля пол сказкам Андерсена">
+
+          <P class="space">
+&nbsp;
+          </P>
+<IMG class=basic id="photo3"
+     src="pic/0504.jpg" width=142 height=164 border=0
+     alt="Сцена из спектакля пол сказкам Андерсена">
+          <P class="space">
+&nbsp;
+          </P>
+<IMG class=basic id="photo4"
+     src="pic/0503.jpg" width=142 height=124 border=0
+     alt="Приглашение в ТЮЗ">
+        </DIV>
+      </DIV>                                 <!-- Рабочая область -->
+    </DIV>                                  <!-- Главный блок  -->                     
+
+  </BODY>
+</HTML>
