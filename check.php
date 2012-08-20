@@ -4,20 +4,44 @@ require_once('mysql_common.php');
 if (isset($_GET['qid']) && isset($_GET['aid']) && isset($_GET['uid'])) {
 	$qid = intval($_GET['qid']);
 	$aid = intval($_GET['aid']);
-	$uid = intval($_GET['uid']);
+	$uid = mysql_real_escape_string($_GET['uid']);
 
-	$row = mysql_select_by_id('questions', $qid);
+	/*$row = mysql_select_by_id('questions', $qid);
+	$ans_right = (intval($row[3]) == $aid);*/
+	$dbconn = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
+	mysql_select_db(MYSQL_DB_NAME);
+
+	$qres = mysql_query('SELECT * FROM questions WHERE id='.$qid);
+	$row = mysql_fetch_row($qres);
 	$ans_right = (intval($row[3]) == $aid);
-	$row = mysql_select_by_id('users', $uid);
-	$tries = unserialize($row[7]);
 
-	$dbconn = mysql_open_connection();
+	$qres = mysql_query('SELECT * FROM users WHERE uid=\''.$uid.'\'');
+	$row = mysql_fetch_row($qres);
+	$tries = null;
+	
+	if (strlen(trim($row[7])) == 0) {
+		$qres = mysql_query('SELECT * FROM questions WHERE 1');
+		$maxid = -1;
+		// ищем максимальный id вопроса, чтобы сздать массив попыток длиной id+1
+		while ($row = mysql_fetch_row($qres)) {
+			if (intval($row[0]) > $maxid)
+				$maxid = intval($row[0]);
+		}
+		//die('∆ќѕјЌќ¬џ…√ќƒ '.intval($row[0]));
+		$tries = array_fill(0, $maxid + 1, 0);
+	} else
+		$tries = unserialize($row[7]);
+
 	if (!$ans_right)
 		$tries[$qid]++;
-	mysql_query('UPDATE users SET tries='.serialize($tries).' WHERE id='.$uid);
-	mysql_close_connection($dbconn);
+	mysql_query('UPDATE users SET tries=\''.serialize($tries).'\' WHERE uid=\''.$uid.'\'');
 
-	die('Checked question '.$qid.' from user '.$uid.'. Given answer '.$aid.'. Correct: '.$ans_right);
+	mysql_close($dbconn);
+
+	$tries_str = '';
+	foreach ($tries as $try) {
+		$tries_str = $tries_str.'; '.$try;
+	}
 
 	echo $ans_right ? 'y' : 'n';	
 }
