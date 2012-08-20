@@ -14,6 +14,7 @@ function register_new_user($fam, $name, $age, $city, $email) {
 	mysql_select_db(MYSQL_DB_NAME);
 	$qres = mysql_query('SELECT * FROM users WHERE uid=\''.$new_uid.'\'');
 	$row = mysql_fetch_row($qres);
+	
 	if ($row[0] != NULL) {
 		//die('exists');
 		$new_uid = NULL;

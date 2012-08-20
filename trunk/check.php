@@ -10,15 +10,18 @@ if (isset($_GET['qid']) && isset($_GET['aid']) && isset($_GET['uid'])) {
 	$ans_right = (intval($row[3]) == $aid);*/
 	$dbconn = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
 	mysql_select_db(MYSQL_DB_NAME);
-
+	
 	$qres = mysql_query('SELECT * FROM questions WHERE id='.$qid);
 	$row = mysql_fetch_row($qres);
 	$ans_right = (intval($row[3]) == $aid);
 
-	$qres = mysql_query('SELECT * FROM users WHERE uid=\''.$uid.'\'');
+	$qres = mysql_query('SELECT * FROM users WHERE uid=\''.$uid.'\'');	
+	if (mysql_num_rows($qres) <= 0)
+		die('Hey, nigger! Do you work!');
 	$row = mysql_fetch_row($qres);
+	$score = intval($row[6]);
+
 	$tries = null;
-	
 	if (strlen(trim($row[7])) == 0) {
 		$qres = mysql_query('SELECT * FROM questions WHERE 1');
 		$maxid = -1;
@@ -32,9 +35,19 @@ if (isset($_GET['qid']) && isset($_GET['aid']) && isset($_GET['uid'])) {
 	} else
 		$tries = unserialize($row[7]);
 
-	if (!$ans_right)
+	if (!$ans_right) {		
 		$tries[$qid]++;
-	mysql_query('UPDATE users SET tries=\''.serialize($tries).'\' WHERE uid=\''.$uid.'\'');
+		//echo 'incremented tries: '.$tries[$qid]."\n";
+	} else {
+		//echo ''.$tries[$qid];
+		switch ($tries[$qid]) {
+		case 0: $score += 3; break;
+		case 1: $score += 2; break;
+		case 2: $score += 1; break;
+		default: break; //ежели больее 3 раз давал неверный ответ
+		}
+	}
+	mysql_query('UPDATE users SET tries=\''.mysql_real_escape_string(serialize($tries)).'\', score='.$score.' WHERE uid=\''.$uid.'\'');
 
 	mysql_close($dbconn);
 
