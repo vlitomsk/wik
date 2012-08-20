@@ -278,7 +278,7 @@ exam.drop = function(event, ui)
 			if (xmlHttp.status == 200) {
 				is_correct_drop = (xmlHttp.responseText[0] == 'y');
 				worked = true;				
-				//alert('Got response: ' + is_correct_drop);
+				alert('Got response: ' + xmlHttp.responseText);
 				
 				// На вопрос сброшен правильный ответ?
 				if(is_correct_drop)
