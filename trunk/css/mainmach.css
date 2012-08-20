@@ -1,0 +1,171 @@
+HTML
+{
+  background: url(../pic/fon-all.jpg) repeat-x right top;   
+}
+
+/* Исполнитель Сортировка 
+   ---------------------- */
+#sort
+{
+  width:732px;
+  margin:1em auto;
+  border:1px solid black;
+  background: url(../pic/fon-vv.jpg); 
+}
+/* Заголовок 
+   ---------------------- */
+#sort_title
+{
+  height:100px;
+/*   background: url(../pic/fontitle.png) no-repeat right top;  */
+}
+/* Рабочая область 
+   ---------------------- */
+#sort_work
+{
+  position:relative;
+  padding:0;
+  margin:0;
+/*   border:1px solid black;  */
+  width:730px;
+  \width:732px;  
+  w\idth:730px; 
+  height:600px;
+  \height:602px;
+  he\ight:600px;
+}
+/* Область с сортируемыми объектами 
+   ---------------------- */
+#sort_area_оbjects
+{
+  position:absolute; 
+  left:10px; 
+  top:10px;
+/*   border: 1px solid black; */
+  width:555px;
+  \width:552px;  
+  w\idth:550px; 
+  height:480px;
+  \height:482px;
+  he\ight:480px;
+/*   background:white;  */
+  padding-left:3px;
+}
+#sort_area_оbjects IMG
+{
+  position:absolute; 
+}
+
+/* Область с ящиками для сортировки  
+   ---------------------- */
+#sort_area_boxes
+{
+  position:absolute; 
+  left:10px; 
+  bottom:10px;
+  width:550px;
+  height:80px;
+}
+/* Ящик для сортировки */
+#sort_area_boxes DIV
+{
+  position:absolute; 
+  bottom:0;
+  border:1px solid black;
+/*   background:#ebf7fb;  */
+  background: #dbf4df; 
+  font: 18px Arial, sans-serif; 
+  text-align: center;
+}
+/* Вид ящика, когда над ним объект */
+
+#sort_area_boxes DIV.boxhover      
+{
+  background-color: #59C41C;
+  border:1px solid white;
+  color: white;
+  
+}
+#sort_area_boxes DIV.boxhover1      
+{
+  background-color: #59C41C;
+  border:1px solid white;
+  color: white;
+  
+}
+.dropbox {
+ background-color: #7374ff;
+}
+/* Кнопка Главная  
+   ---------------------- */
+#index
+{
+  position:absolute; 
+  right:9px; 
+  top:9px;
+}
+/* Кнопка Игры  
+   ---------------------- */
+#game
+{
+  position:absolute; 
+  right:9px; 
+  top:59px;
+}
+/* Кнопка Сброс  
+   ---------------------- */
+#sort_clear
+{
+  position:absolute; 
+  right:9px; 
+  top:109px;
+}
+/* Область показа оценки  
+   ---------------------- */
+#sort_z
+{
+  position:absolute; 
+  width:142px;
+  height:150px;
+  padding:0; margin:0;
+/*   background:white;  */
+/*   background: url(../pic/fon-ocenka.png);  */
+  right:10px;
+  bottom:10px;
+}
+/* Постановка задачи  
+   ---------------------- */
+#sort_mess
+{
+  position:absolute; 
+  right:10px;
+  padding:0; margin:0;
+  top:175px;
+  text-align:right;
+  font: 20px Arial, sans-serif; 
+  color:#b9fc79;
+}
+/* Когда задача решена  
+   ---------------------- */
+#sort_mess SPAN
+{
+  color: #b9fc79;
+}
+/* Число решенных задач  
+   ---------------------- */
+#sort_ntask
+{
+  position:absolute; 
+  right:10px;
+  padding:0; margin:0;
+  bottom:178px;
+  text-align:right;
+  font: 20px Arial, sans-serif; 
+  color:#b9fc79;
+}
+#sort_ntask SPAN
+{
+  color: #edaa29;
+  font-size:40px;
+}
+

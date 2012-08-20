@@ -1,0 +1,362 @@
+HTML
+{
+  background: url(../pic/fon-all.jpg) repeat-x right top;  
+}
+
+/* Исполнитель Поле ввода 
+   ---------------------- */
+#test
+{
+  width:732px;
+  margin:1em auto;
+  border:1px solid black;
+  background: url(../pic/fon-vv.jpg) no-repeat 0 0px;  
+}
+/* Заголовок 
+   ---------------------- */
+#test_title
+{
+  height:100px;
+/*   background: url(../pic/fontitle.png) no-repeat right top; */
+}
+/* Рабочая область 
+   ---------------------- */
+#test_work
+{
+  position:relative;
+  padding:0;
+  margin:0;
+/*   border-top:1px solid black;   */
+  width:730px;
+  \width:732px;  
+  w\idth:730px; 
+  height:600px;
+  \height:602px;
+  he\ight:600px;
+ /*  background: url(../pic/fon-new.png);    */
+}
+/* Область с объектами 
+   ---------------------- */
+#test_area_оbjects
+{
+  position:absolute; 
+  left:10px; 
+  top:10px;
+/*   border: 1px solid black; */
+  width:555px;
+  height:480px;
+ /*   background:white; */
+  padding-left:3px; 
+ /*  background: url(../pic/fon-new.png);    */
+}
+#test_big_picture_div
+{
+  border:1px solid #083b02;
+  position: absolute;
+ /*   background-color: white; */
+ /*  background: url(../pic/fon-new.png);    */
+  background: url(../pic/fon-end.png);  
+}
+#test_big_picture_div IMG
+{
+  border:1px solid #083b02;
+  vertical-align: middle;
+  text-align: center;
+ /*  background: url(../pic/fon-new.png);    */
+}
+#test_area_оbjects IMG
+{
+  width:47px;
+  height: 65px;
+  margin:3px;
+  margin-left:0px;
+}
+
+#test_area_оbjects #testfin
+{
+  position:absolute; 
+  left:10px; 
+  top:10px;
+  width:555px;
+  height:480px;
+ /*   background:white; */
+  padding-left:3px;
+ /*  background: url(../pic/fon-new.png);    */
+}
+
+
+/* Область с полем ввода 
+   ---------------------- */
+#test_area_boxes
+{
+  position:absolute; 
+  left:10px; 
+  bottom:10px;
+  width:550px;
+  height:80px;
+}
+/* Ящик для сортировки */
+#test_area_boxes DIV
+{
+  position:absolute; 
+  bottom:0;
+  border:1px solid black;
+  background:#ebf7fb;
+  font: 18px Arial, sans-serif; 
+  text-align: center; 
+
+}
+
+.test_area_msg
+{
+  font: 24px Arial, sans-serif;  /*  было 28   */
+  color: #083b02;
+  font-weight: bold;
+  text-align: center;
+}
+
+#inp
+{ 
+  font:18pt tahoma,arial,verdana,sans-serif;
+  background: #dbf4df; 
+  width: 557px; 
+} 
+/* Кнопка Проверить  
+   ---------------------- */
+#but_check
+{
+  position:absolute; 
+  left:0px; 
+  bottom:-9px;
+}
+/* Кнопка Главная  
+   ---------------------- */
+#index
+{
+  position:absolute; 
+  right:9px; 
+  top:9px;
+}
+/* Кнопка Игры  
+   ---------------------- */
+#game
+{
+  position:absolute; 
+  right:9px; 
+  top:59px;
+}
+/* Кнопка Сброс  
+   ---------------------- */
+#test_clear
+{
+  position:absolute; 
+  right:9px; 
+  top:109px;
+}
+/* Область показа оценки  
+   ---------------------- */
+#test_z
+{
+  position:absolute; 
+  width:142px;
+  height:150px;
+  padding:0; margin:0;
+/*   background:white; */
+  right:10px;
+  bottom:10px;
+/*   background: url(../pic/fon-ocenka.png); */
+}
+/* Постановка задачи  
+   ---------------------- */
+#test_mess
+{
+  position: absolute; 
+  right: 10px;
+  padding:0; margin:0;
+  top: 175px;
+  text-align: right;
+  font: 20px Arial, sans-serif; 
+  color: #b9fc79;
+/*   width:150px;
+  word-break: keep-all;
+  text-indent: 15px;   */
+}
+DFN
+{
+  font: 18px Arial, sans-serif;
+}
+
+/* Когда задача решена  
+   ---------------------- */
+#test_mess SPAN
+{
+  color: #b9fc79;
+}
+/* Число решенных задач  
+   ---------------------- */
+#test_ntask
+{
+  position:absolute; 
+  right:10px;
+  padding:0; margin:0;
+  bottom:178px;
+  text-align:right;
+  font: 20px Arial, sans-serif; 
+  color:#b9fc79;
+}
+#test_ntask SPAN
+{
+  color: #edaa29;
+  font-size:40px;
+}
+
+.pict_group 
+{
+/*   border:1px solid blue;	 */
+  position:absolute;
+  overflow: visible;
+}
+.pict_single 
+{
+position:absolute;   /*   эксперимент	 */
+left:170px;   /*   смещение	 */
+  border:none;	
+  overflow: visible;
+ }
+
+/* Область для начальной страницы 
+   ---------------------- */
+#test_begin
+{
+  position:absolute; 
+  left:10px; 
+  top:10px;
+  border: 1px solid #fa9600;
+  width:540px;
+  height:480px;
+  background: #dbf4df;
+  padding: 5px 10px 5px 10px;
+  font:12px Georgia, serif;
+}
+H2, H3
+{
+  color: #207E1D;
+  margin-bottom:-8px;
+}
+H2 {font-size:18px;}
+H3 {font-size:13px;}
+
+/* Фотогалерея  
+   ---------------------- */
+#test_photo
+{
+  position:absolute; 
+  width:142px;
+  height:580px;
+/*   border: 1px solid black;  */
+  padding:0; margin:0;
+  background:white;
+  background: url(../pic/fon-177.png); 
+  right:10px;
+  top:10px;
+}
+
+#photo1, #his1, #aut1
+{
+  border: 2px solid #fa9600;
+}
+#photo2
+{
+  position:absolute; 
+  padding:0; margin:0;
+  top:142px;
+  border: 2px solid #fa9600;
+}
+#photo3
+{
+  position:absolute; 
+  padding:0; margin:0;
+  top:278px;
+  border: 2px solid #fa9600;
+}
+#photo4
+{
+  position:absolute; 
+  padding:0; margin:0;
+  top:452px;
+  border: 2px solid #fa9600;
+}
+#his2
+{
+  position:absolute; 
+  padding:0; margin:0;
+  top:228px;
+  border: 2px solid #fa9600;
+}
+#his3
+{
+  position:absolute; 
+  padding:0; margin:0;
+  top:413px;
+  border: 2px solid #fa9600;
+}
+#aut2
+{
+  position:absolute; 
+  padding:0; margin:0;
+  top:203px;
+  border: 2px solid #fa9600;
+}
+#aut3
+{
+  position:absolute; 
+  padding:0; margin:0;
+  top:387px;
+  border: 2px solid #fa9600;
+}
+
+/***************************************
+   =cluetipClass: 'ru' 
+-------------------------------------- */
+
+.cluetip-ru {
+  background-color: #d9d9c2;
+}
+.cluetip-ru #cluetip-outer {
+  position: relative;
+  margin: 0;
+  background: #fbecd5; /* Фон текста */
+  background: #daf5fe; /* Фон текста */
+}
+.cluetip-ru h3#cluetip-title {  /* Заголовок */
+  text-align:center;
+  margin: 0 0 5px;
+  padding: 8px 10px 4px;
+  font-size: 1.1em;
+  font-weight: normal;
+  background-color: #fa9600;
+  color: #fff;
+}
+.cluetip-ru #cluetip-title a {
+  color: #d9d9c2;
+  font-size: 0.95em;
+}  
+.cluetip-ru #cluetip-inner {
+  padding: 10px;
+  font-size: 1em;
+}
+.cluetip-ru div#cluetip-close { 
+  text-align: right;
+  margin: 0 5px 5px;
+  color: #900;
+}
+/* Оформление внешней ссылки */
+A.off
+{
+  background: url(../pic/off.gif) no-repeat center right;
+  padding-right: 11px;
+  margin-right: 2px; 
+  zoom:1; /* хак для IE  */
+}
+
+
