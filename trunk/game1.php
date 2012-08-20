@@ -45,20 +45,6 @@ if (isset($_GET["uid"]) && isset($_GET["score"])) {
 	mysql_close($dbconn);
 	//die('Updated UID ('.$user_id.'). Score='.$user_score.'.');
 
-	$cert_orig_path = NULL;
-	if ($user_score >= 39) 
-		$cert_orig_path = 'pic/cert_mag.png';
-	else if ($user_score >= 34)
-		$cert_orig_path = 'pic/cert_bak.png';
-	else if ($user_score >= 28)
-		$cert_orig_path = 'pic/cert_shk.png';
-
-	if ($cert_orig_path) {
-		$im = imagecreatefrompng($cert_orig_path);
-		$redcolor = imagecolorallocate($im, 255, 0, 0);
-		imagettftext($im, 12, 0, 47, 113, $redcolor, 'calibri.ttf', $row[1].' '.$row[2].' -> '.$row[6]);
-		imagepng($im, 'pic/cert/c_'.$user_id.'.png');
-	}
 } else if (isset($_POST["vik_fam"]) && isset($_POST["vik_name"]) &&
 isset($_POST["vik_age"]) && isset($_POST["vik_email"]) && 
 isset($_POST["vik_city"]) && isset($_POST["vik_cap"]) && 

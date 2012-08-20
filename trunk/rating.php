@@ -29,11 +29,11 @@
 <?php
 function newcell($key, $val) {
 	echo '<td>';
-	echo $key;
+	echo iconv('utf-8', 'windows-1251', $key);
 	echo '</td>';
 
 	echo '<td>';
-	echo $val;
+	echo iconv('utf-8', 'windows-1251', $val);
 	echo '</td>';
 }
 

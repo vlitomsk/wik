@@ -7,3 +7,6 @@
 На pic/cert/* - 755
 На pic/captcha - 700 (нерекурсивно)
 На pic/captcha/* - 755
+4) В браузере /admin/index.php
+Наполнить базу вопросов
+Нажать "Обновить examtask.js" - сгенерируется новый js/examtask.js. // correct:false везде

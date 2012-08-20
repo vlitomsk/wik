@@ -57,5 +57,30 @@ if (isset($_GET['qid']) && isset($_GET['aid']) && isset($_GET['uid'])) {
 	}
 
 	echo $ans_right ? 'y' : 'n';	
+} else if (isset($_GET['uid']) && isset($_GET['get_score'])) {
+	$uid = mysql_real_escape_string($_GET['uid']);
+	$dbconn = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
+	mysql_select_db(MYSQL_DB_NAME);
+	$qres = mysql_query('SELECT * FROM users WHERE uid=\''.$uid.'\'');
+	$row = mysql_fetch_row($qres);
+	$user_score = intval($row[6]);
+	mysql_close($dbconn);
+
+	$cert_orig_path = NULL;
+	if ($user_score >= 1) 
+		$cert_orig_path = 'pic/cert_mag.png';
+	else if ($user_score >= 34)
+		$cert_orig_path = 'pic/cert_bak.png';
+	else if ($user_score >= 28)
+		$cert_orig_path = 'pic/cert_shk.png';
+
+	if ($cert_orig_path) {
+		$im = imagecreatefrompng($cert_orig_path);
+		$redcolor = imagecolorallocate($im, 255, 0, 0);
+		imagettftext($im, 12, 0, 47, 113, $redcolor, 'calibri.ttf', $row[1].' '.$row[2].' -> '.$row[6]);
+		imagepng($im, 'pic/cert/c_'.$uid.'.png');
+	}
+
+	echo $user_score;
 }
 ?>
