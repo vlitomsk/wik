@@ -1,5 +1,5 @@
 <?php
-require_once('mysql_conf.php');
+require_once('../mysql_conf.php');
 $sql_captcha = 'CREATE TABLE IF NOT EXISTS `captcha` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` int(11) NOT NULL,
