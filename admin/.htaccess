@@ -1,0 +1,5 @@
+AuthName "Admin only!" 
+AuthType Basic 
+AuthUserFile Z:\home\wikto.ru\www\admin\.htpasswd
+require valid-user
+
