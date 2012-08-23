@@ -1,4 +1,5 @@
 <?php
+require_once('./mysql_conf.php');
 require_once('./config.php');
 if (isset($_GET['qid']) && isset($_GET['aid']) && isset($_GET['uid'])) {
 	$qid = intval($_GET['qid']);
