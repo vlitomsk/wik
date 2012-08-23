@@ -1,0 +1,9 @@
+<Files cert>
+	order deny,allow
+	deny from all
+</Files>
+
+<Files cert/*.png>
+	order allow,deny
+	allow from all
+</Files>
