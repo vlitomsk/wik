@@ -92,10 +92,10 @@ while ($row = mysql_fetch_row($qres)) {
 	echo "      ".iconv('utf-8', 'windows-1251', $row[1]);
 	echo "    </td>\n";
 	echo "    <td>\n";
-	$answers = unserialize(iconv('utf-8', 'windows-1251', $row[2]));
+	$answers = unserialize($row[2]);
 	for ($i = 0; $i < count($answers); $i++) {
 		$cur_correct = (($i + 1) == intval($row[3]));
-		echo "      ".($cur_correct ? "<b>" : "").($i + 1).") ".$answers[$i].($cur_correct ? "</b>" : "")."<br>\n";	
+		echo "      ".($cur_correct ? "<b>" : "").($i + 1).") ".iconv('utf-8', 'windows-1251', $answers[$i]).($cur_correct ? "</b>" : "")."<br>\n";	
 	}
 	echo "    </td>\n";
 	echo "    <td>\n";
