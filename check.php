@@ -1,6 +1,5 @@
 <?php
-require_once('mysql_conf.php');
-require_once('mysql_common.php');
+require_once('./config.php');
 if (isset($_GET['qid']) && isset($_GET['aid']) && isset($_GET['uid'])) {
 	$qid = intval($_GET['qid']);
 	$aid = intval($_GET['aid']);
@@ -37,15 +36,10 @@ if (isset($_GET['qid']) && isset($_GET['aid']) && isset($_GET['uid'])) {
 
 	if (!$ans_right) {		
 		$tries[$qid]++;
-		//echo 'incremented tries: '.$tries[$qid]."\n";
 	} else {
-		//echo ''.$tries[$qid];
-		switch ($tries[$qid]) {
-		case 0: $score += 3; break;
-		case 1: $score += 2; break;
-		case 2: $score += 1; break;
-		default: break; //ежели больее 3 раз давал неверный ответ
-		}
+		$try_n = $tries[$qid];
+		if ($try_n < count($VIK_BONUS_ARRAY))
+			$score += $VIK_BONUS_ARRAY[$try_n];
 	}
 	mysql_query('UPDATE users SET tries=\''.mysql_real_escape_string(serialize($tries)).'\', score='.$score.' WHERE uid=\''.$uid.'\'');
 
@@ -66,19 +60,25 @@ if (isset($_GET['qid']) && isset($_GET['aid']) && isset($_GET['uid'])) {
 	$user_score = intval($row[6]);
 	mysql_close($dbconn);
 
-	$cert_orig_path = NULL;
-	if ($user_score >= 1) 
-		$cert_orig_path = 'pic/cert_mag.png';
-	else if ($user_score >= 34)
-		$cert_orig_path = 'pic/cert_bak.png';
-	else if ($user_score >= 28)
-		$cert_orig_path = 'pic/cert_shk.png';
+	$user_has_cert = -1;
+	for ($i = 0; $i < $VIK_CERT_SCORES; $i++) {
+		if ($user_score >= $VIK_CERT_SCORES[$i]) {
+			$user_has_cert = $i;
+			break;
+		}
+	}
 
-	if ($cert_orig_path) {
-		$im = imagecreatefrompng($cert_orig_path);
-		$redcolor = imagecolorallocate($im, 255, 0, 0);
-		imagettftext($im, 12, 0, 47, 113, $redcolor, 'calibri.ttf', $row[1].' '.$row[2].' -> '.$row[6]);
-		imagepng($im, 'pic/cert/c_'.$uid.'.png');
+	if ($user_has_cert >= 0) {
+		if ($VIK_DRAW_CERT) {
+			$cert_orig_path = $VIK_CERT_TEMPLATE_PATH[$user_has_cert];
+
+			if ($cert_orig_path) {
+				$im = imagecreatefrompng($cert_orig_path);
+				$redcolor = imagecolorallocate($im, 255, 0, 0);
+				imagettftext($im, 12, 0, 47, 113, $redcolor, $VIK_CERT_FONT_PATH, $row[1].' '.$row[2].' -> '.$row[6]);
+				imagepng($im, 'pic/cert/c_'.$uid.'.png');
+			}
+		}
 	}
 
 	echo $user_score;
