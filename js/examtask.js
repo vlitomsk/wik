@@ -1,42 +1,47 @@
 exam.tasks = [
 {
-  question: "Два умножить на два=",
+  question: "2 на 2 =",
   id:1,
   answers:
         [
           {
            aid: 1,
            correct: false,
-           content: "2"
+           content: "три"
           },
           {
            aid: 2,
            correct: false,
-           content: "3"
+           content: "четыре"
           },
           {
            aid: 3,
            correct: false,
-           content: "4"
+           content: "пять"
           }
         ],
   options: {next: true}
 }
 ,
 {
-  question: "Пять add six equals",
+  question: "two multiply two equals",
   id:2,
   answers:
         [
           {
            aid: 1,
            correct: false,
-           content: "11"
+           content: "three"
           },
           {
            aid: 2,
            correct: false,
-           content: "3"
+           content: "four"
+          },
+          {
+           aid: 3,
+           correct: false,
+           content: "five"
           }
         ],
   options: {next: false}}];
