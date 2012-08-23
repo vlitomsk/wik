@@ -1,6 +1,6 @@
 <?php
 
-require_once('./mysql_config'); // настройки MySQL - посмотреть отдельно
+require_once('./mysql_conf.php'); // настройки MySQL - посмотреть отдельно
 
 /**
  * Настройки логики викторины
@@ -12,9 +12,9 @@ $VIK_BONUS_ARRAY[1] = 2; // со второго
 $VIK_BONUS_ARRAY[2] = 1; // ...
 
 // Разбалловка по местам. Шаблоны сертификатов под эти места - $CERT_TEMPLATE_PATH 
-$VIK_CERT_SCORES[0] = 39; // Первое место - >= 39 баллов
-$VIK_CERT_SCORES[1] = 34; // Второе
-$VIK_CERT_SCORES[2] = 28; // ...
+$VIK_CERT_SCORES[0] = 2; // Первое место - >= 39 баллов
+$VIK_CERT_SCORES[1] = 1; // Второе
+$VIK_CERT_SCORES[2] = 0; // ...
 
 /// Тут должны быть настройки SMTP
 
@@ -27,11 +27,11 @@ $VIK_SEND_CERTS = true; // Отправлять ли участникам сертификаты по почте
 
 $VIK_DRAW_CERT = true; // Использовать графические сертификаты
 
-$VIK_CERT_FONT_PATH = '/calibri.ttf'; // Шрифт, используемый в сертификате
+$VIK_CERT_FONT_PATH = './calibri.ttf'; // Шрифт, используемый в сертификате
 
 // Шаблоны сертификатов. Индекация массива - как у $CERT_SCORES
-$VIK_CERT_TEMPLATE_PATH[0] = '/pic/cert_mag.png';
-$VIK_CERT_TEMPLATE_PATH[1] = '/pic/cert_bak.png';
-$VIK_CERT_TEMPLATE_PATH[2] = '/pic/cert_shk.png';
+$VIK_CERT_TEMPLATE_PATH[0] = './pic/cert_mag.png';
+$VIK_CERT_TEMPLATE_PATH[1] = './pic/cert_bak.png';
+$VIK_CERT_TEMPLATE_PATH[2] = './pic/cert_shk.png';
 
 ?>
